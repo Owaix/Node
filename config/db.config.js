@@ -1,13 +1,11 @@
 'user strict';
 
 const mysql = require('mysql');
-
-//local mysql db connection
 const dbConn = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : 'Brsoft@123',
-  database : 'node_mysql_crud_db'
+  host     : 'sql109.move.pk',
+  user     : 'mov_19055772',
+  password : 'q0ckgs4r',
+  database : 'mov_19055772_test'
 });
 dbConn.connect(function(err) {
   if (err) throw err;
