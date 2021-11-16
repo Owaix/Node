@@ -19,10 +19,10 @@ app.get('/', (req, res) => {
 });
 
 // Require employee routes
-const employeeRoutes = require('./src/routes/employee.routes')
+const employeeRoutes = require('./src/routes/BannerVehincle.routes')
 
 // using as middleware
-app.use('/api/v1/employees', employeeRoutes)
+app.use('/api/v1/BannerVehincle', employeeRoutes)
 
 // listen for requests
 app.listen(port, () => {

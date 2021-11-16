@@ -2,10 +2,10 @@
 
 const mysql = require('mysql');
 const dbConn = mysql.createConnection({
-  host     : 'sql109.move.pk',
-  user     : 'mov_19055772',
-  password : 'q0ckgs4r',
-  database : 'mov_19055772_test'
+  host     : 'localhost',//'sql109.move.pk',
+  user     : 'root',//'mov_19055772',
+  password : '',//'q0ckgs4r',
+  database : 'carsale_db'
 });
 dbConn.connect(function(err) {
   if (err) throw err;
