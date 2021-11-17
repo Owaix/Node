@@ -1,8 +1,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 // create express app
 const app = express();
+
+app.use(cors({
+  origin: '*'
+}));
 
 // Setup server port
 const port = process.env.PORT || 5000;
@@ -19,10 +24,15 @@ app.get('/', (req, res) => {
 });
 
 // Require employee routes
-const employeeRoutes = require('./src/routes/BannerVehincle.routes')
+const BannerVehincle = require('./src/routes/BannerVehincle.routes')
+app.use('/api/BannerVehincle', BannerVehincle)
 
-// using as middleware
-app.use('/api/v1/BannerVehincle', employeeRoutes)
+const FeatureCategory = require('./src/routes/FeatureCategory.routes')
+app.use('/api/FeatureCategory', FeatureCategory)
+
+const FeatureVehicle = require('./src/routes/FeatureVehicle.routes')
+app.use('/api/FeatureVehicle', FeatureVehicle)
+
 
 // listen for requests
 app.listen(port, () => {
