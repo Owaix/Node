@@ -37,6 +37,13 @@ exports.findById = function (req, res) {
     });
 };
 
+exports.findByCategoryID = function (req, res) {
+    FeatureVehicle.findByCategoryID(req.params.id, function (err, FeatureVehicle) {
+        if (err)
+            res.send(err);
+        res.json(FeatureVehicle);
+    });
+};
 
 exports.update = function (req, res) {
     if (req.body.constructor === Object && Object.keys(req.body).length === 0) {

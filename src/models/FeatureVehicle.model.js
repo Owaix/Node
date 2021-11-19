@@ -46,6 +46,18 @@ FeatureVehicle.findById = function (id, result) {
     });
 };
 
+FeatureVehicle.findByCategoryID = function (Catid, result) {
+    dbConn.query("Select * from tbl_FeatureVehicle where CategoryID = ? ", Catid, function (err, res) {
+        if (err) {
+            console.log("error: ", err);
+            result(err, null);
+        }
+        else {
+            result(null, res);
+        }
+    });
+};
+
 FeatureVehicle.findAll = function (result) {
     dbConn.query("Select * from tbl_FeatureVehicle", function (err, res) {
         if (err) {

@@ -25,14 +25,25 @@ app.get('/', (req, res) => {
 
 // Require employee routes
 const BannerVehincle = require('./src/routes/BannerVehincle.routes')
-app.use('/api/BannerVehincle', BannerVehincle)
+app.use('/api/bannervehincle', BannerVehincle)
 
 const FeatureCategory = require('./src/routes/FeatureCategory.routes')
-app.use('/api/FeatureCategory', FeatureCategory)
+app.use('/api/featurecategory', FeatureCategory)
 
 const FeatureVehicle = require('./src/routes/FeatureVehicle.routes')
-app.use('/api/FeatureVehicle', FeatureVehicle)
+app.use('/api/featurevehicle', FeatureVehicle)
 
+const LatestModel = require('./src/routes/LatestModel.routes')
+app.use('/api/latestmodel', LatestModel)
+
+const Make = require('./src/routes/Make.routes')
+app.use('/api/make', Make)
+
+const Model = require('./src/routes/Model.routes')
+app.use('/api/model', Model)
+
+const VehicleType = require('./src/routes/VehicleType.routes')
+app.use('/api/vehicletype', VehicleType)
 
 // listen for requests
 app.listen(port, () => {

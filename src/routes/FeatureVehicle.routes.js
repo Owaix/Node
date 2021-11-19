@@ -11,6 +11,8 @@ router.post('/', FeatureVehicleController.create);
 // Retrieve a single employee with id
 router.get('/:id', FeatureVehicleController.findById);
 
+router.get('/ByCategoryID/:id' , FeatureVehicleController.findByCategoryID);
+
 // Update a employee with id
 router.put('/:id', FeatureVehicleController.update);
 
