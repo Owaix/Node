@@ -47,7 +47,7 @@ Make.findAll = function (result) {
     });
 };
 Make.update = function (id, Make, result) {
-    dbConn.query("UPDATE tbl_Make SET Title=? WHERE id = ?", [Make.first_name, Make.last_name, Make.email, Make.phone, Make.organization, Make.designation, Make.salary, id], function (err, res) {
+    dbConn.query("UPDATE tbl_Make SET Title=? WHERE id = ?", [Make.Title , id], function (err, res) {
         if (err) {
             console.log("error: ", err);
             result(null, err);

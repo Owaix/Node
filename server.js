@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
 
 // Require employee routes
 const BannerVehincle = require('./src/routes/BannerVehincle.routes')
-app.use('/api/bannervehincle', BannerVehincle)
+app.use('/api/bannervehicle', BannerVehincle)
 
 const FeatureCategory = require('./src/routes/FeatureCategory.routes')
 app.use('/api/featurecategory', FeatureCategory)

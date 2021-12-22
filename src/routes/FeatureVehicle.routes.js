@@ -13,6 +13,8 @@ router.get('/:id', FeatureVehicleController.findById);
 
 router.get('/ByCategoryID/:id' , FeatureVehicleController.findByCategoryID);
 
+router.post('/GetVehicleSearchReult/' , FeatureVehicleController.GetVehicleSearchReult);
+
 // Update a employee with id
 router.put('/:id', FeatureVehicleController.update);
 

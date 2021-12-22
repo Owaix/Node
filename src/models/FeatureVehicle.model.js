@@ -19,6 +19,7 @@ var FeatureVehicle = function (FeatureVehicle) {
     this.Price = FeatureVehicle.Price;
     this.VehicleTypeID = FeatureVehicle.VehicleTypeID;
     this.WaterMark = FeatureVehicle.WaterMark;
+    this.oldPrice = FeatureVehicle.oldPrice;
 };
 
 FeatureVehicle.create = function (newEmp, result) {
@@ -34,6 +35,37 @@ FeatureVehicle.create = function (newEmp, result) {
     });
 };
 
+// FeatureVehicle.GetVehicleSearchReult = function (newEmp, result) {
+//     dbConn.query("INSERT INTO tbl_FeatureVehicle set ?", newEmp, function (err, res) {
+//         // if (err) {
+//         //     console.log("error: ", err);
+//         //     result(err, null);
+//         // }
+//         // else {
+//         //     console.log(res.insertId);
+//         //     result(null, res.insertId);
+//         // }
+//         result(newEmp, newEmp);
+//     });
+// };
+
+
+//Insert an employees
+FeatureVehicle.GetVehicleSearchReult = function (req, result) {
+    let emp = req.body;
+    var sql = "SET @makeID = ?;SET @modelID = ?;SET @VehicleTypeID = ?;SET @IsUsed = ?;SET @Isnego = ?;SET @priceStart = ?;SET @priceEnd = ?; \
+    CALL GETVehicle(@makeID,@modelID,@VehicleTypeID,@IsUsed,@Isnego,@priceStart,@priceEnd);";
+    dbConn.query(sql, [emp.makeID, emp.modelID, emp.VehicleTypeID, emp.IsUsed, emp.Isnego, emp.priceStart, emp.priceEnd], function (err, res) {
+        if (err) {
+            console.log("error: ", err);
+            result(err, null);
+        }
+        else {
+            console.log('tbl_FeatureVehicle : ', res);
+            result(null, res);
+        }
+    })
+};
 FeatureVehicle.findById = function (id, result) {
     dbConn.query("Select * from tbl_FeatureVehicle where ID = ? ", id, function (err, res) {
         if (err) {

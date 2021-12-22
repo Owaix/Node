@@ -62,7 +62,7 @@ VehicleType.findAll = function (result) {
     });
 };
 VehicleType.update = function (id, VehicleType, result) {
-    dbConn.query("UPDATE tbl_VehicleType SET first_name=?,last_name=?,email=?,phone=?,organization=?,designation=?,salary=? WHERE id = ?", [VehicleType.first_name, VehicleType.last_name, VehicleType.email, VehicleType.phone, VehicleType.organization, VehicleType.designation, VehicleType.salary, id], function (err, res) {
+    dbConn.query("UPDATE tbl_Make SET Title=? , MakeID=? WHERE id = ?", [VehicleType.Title,VehicleType.MakeID , id], function (err, res) {
         if (err) {
             console.log("error: ", err);
             result(null, err);

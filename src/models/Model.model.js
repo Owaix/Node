@@ -62,7 +62,7 @@ Model.findAll = function (result) {
     });
 };
 Model.update = function (id, Model, result) {
-    dbConn.query("UPDATE tbl_Model SET first_name=?,last_name=?,email=?,phone=?,organization=?,designation=?,salary=? WHERE id = ?", [Model.first_name, Model.last_name, Model.email, Model.phone, Model.organization, Model.designation, Model.salary, id], function (err, res) {
+    dbConn.query("UPDATE tbl_Make SET Title=? , VehicleTypeID=? WHERE id = ?", [Model.Title,Model.VehicleTypeID , id], function (err, res) {
         if (err) {
             console.log("error: ", err);
             result(null, err);

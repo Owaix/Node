@@ -13,6 +13,16 @@ exports.findAll = function (req, res) {
 };
 
 
+exports.GetVehicleSearchReult = function (req, res) {
+    FeatureVehicle.GetVehicleSearchReult(function (err, FeatureVehicle) {
+        console.log('controller')
+        if (err)
+            res.send(err);
+        console.log('res', FeatureVehicle);
+        res.send(FeatureVehicle);
+    });
+};
+
 exports.create = function (req, res) {
     const new_FeatureVehicle = new FeatureVehicle(req.body);
 

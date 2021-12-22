@@ -50,7 +50,7 @@ BannerVehincle.findAll = function (result) {
     });
 };
 BannerVehincle.update = function (id, BannerVehincle, result) {
-    dbConn.query("UPDATE tbl_BannerVehincle SET first_name=?,last_name=?,email=?,phone=?,organization=?,designation=?,salary=? WHERE id = ?", [BannerVehincle.first_name, BannerVehincle.last_name, BannerVehincle.email, BannerVehincle.phone, BannerVehincle.organization, BannerVehincle.designation, BannerVehincle.salary, id], function (err, res) {
+    dbConn.query("UPDATE tbl_BannerVehincle SET BannerTitle=?,BanneImg=?,LogoImg=? WHERE id = ?", [BannerVehincle.BannerTitle, BannerVehincle.BanneImg, BannerVehincle.LogoImg , id], function (err, res) {
         if (err) {
             console.log("error: ", err);
             result(null, err);
